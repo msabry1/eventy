@@ -1,6 +1,7 @@
 package com.eventy.entity;
 
 import com.eventy.enums.EventCategory;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -30,7 +31,7 @@ public class Event {
     @JoinColumn(name = "creator_id")
     private User user;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
@@ -40,9 +41,11 @@ public class Event {
     @Column(name = "likes")
     private Long likesCnt ;
 
-    @OneToMany(mappedBy = "event")
-    private Set<Comment> comments = new HashSet<>();;
+    @JsonIgnore
+    @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
+    private Set<Comment> comments = new HashSet<>();
 
-    @OneToMany(mappedBy = "event")
+    @JsonIgnore
+    @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
     private Set<Like> likes = new HashSet<>();;
 }
