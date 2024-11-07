@@ -15,6 +15,8 @@ public class EventDto {
     private EventCategory category;
     private Double price;
     private Date date;
+    private byte[] creatorPhoto;
+    private String creatorName;
     private Long creatorId;
     private Address address;
     private Long votes;
