@@ -41,11 +41,11 @@ public class Event {
     @Column(name = "likes")
     private Long likesCnt ;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
     private Set<Comment> comments = new HashSet<>();
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
     private Set<Like> likes = new HashSet<>();;
 }
