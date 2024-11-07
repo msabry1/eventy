@@ -20,6 +20,15 @@ public class User {
     private String password;
     private String bio;
 
+    @Lob
+    private byte[] photo;
+
+    @Column(name = "followers_count")
+    private Long followersCnt ;
+
+    @Column(name = "following_count")
+    private Long followingCnt ;
+
     @Column(name = "tickets")
     private Long ticketsCnt;
 
