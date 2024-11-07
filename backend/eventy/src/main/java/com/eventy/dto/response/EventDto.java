@@ -22,6 +22,7 @@ public class EventDto {
     private String creatorName;
     private Long creatorId;
     private Address address;
-    private Long votes;
+    private Long upVotes;
+    private Long downVotes;
     private Long commentsCnt;
 }
