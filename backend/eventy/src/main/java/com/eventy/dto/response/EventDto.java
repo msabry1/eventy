@@ -17,6 +17,6 @@ public class EventDto {
     private Date date;
     private Long creatorId;
     private Address address;
-    private Long votesCnt;
+    private Long votes;
     private Long commentsCnt;
 }

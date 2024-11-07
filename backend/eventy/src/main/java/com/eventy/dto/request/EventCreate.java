@@ -26,7 +26,6 @@ public class EventCreate {
     private EventCategory category;
 
     @NotNull
-    @PositiveOrZero(message = "price can't be negative")
     @Pattern(regexp="^(0|[1-9][0-9]*)$", message = "price id must be a number")
     private String price;
 

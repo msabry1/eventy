@@ -23,6 +23,9 @@ public class User {
     @Column(name = "tickets")
     private Long ticketsCnt;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Ticket> tickets = new HashSet<>();
+
     @ManyToMany
     @JoinTable(
             name = "user_following",
@@ -32,6 +35,5 @@ public class User {
     private Set<User> following = new HashSet<>(); ;
 
 
-    @OneToMany(mappedBy = "user")
-    private Set<Ticket> tickets = new HashSet<>();
+
 }
