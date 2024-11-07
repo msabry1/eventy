@@ -23,7 +23,6 @@ public class User {
     @Column(name = "tickets")
     private Long ticketsCnt;
 
-    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "user_following",
@@ -32,7 +31,7 @@ public class User {
     )
     private Set<User> following = new HashSet<>(); ;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "user")
     private Set<Ticket> tickets = new HashSet<>();
 }
