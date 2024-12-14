@@ -17,6 +17,7 @@
 
 .eventDetails {
     height: 200px;
+    width: 300px;
     padding: 1rem 2rem;
     background-color: var(--main-color);
     --s: 20px; /* control the radius of the cut */
@@ -27,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    gap: 15px;
+    gap: 1px;
 
     font-weight: bold;
 }
