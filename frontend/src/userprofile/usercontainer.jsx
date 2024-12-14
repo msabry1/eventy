@@ -4,6 +4,7 @@ import logo from '../assets/lll.png';
 
 
 const UserContainer = ({ userName, userType, userBio, userFollowers, userFollowing, userTags}) => {
+
   return (
     <div className="scrollable-container">
       <div className="profile-image-container">

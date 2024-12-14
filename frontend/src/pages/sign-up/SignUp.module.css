@@ -1,0 +1,118 @@
+/* Center both components in the viewport */
+.signInContainer {
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  height: 100vh; /* Full viewport height */
+  color: white;
+  background-color: #f8f9fa; /* Optional: light background color */
+}
+
+.squareContainer {
+  width: 400px; /* Match the form's dimensions */
+  height: 500px; /* Match the form's dimensions */
+  background-color: rgb(255, 255, 255); /* Background color */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 10px; /* Optional: Padding around content */
+}
+
+/* Image inside the square */
+.squareImage {
+  width: 80%; /* Adjust image size relative to the square */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Optional: rounded edges */
+  object-fit: cover; /* Ensure image fits nicely */
+}
+
+.squareContainerDontHave {
+  margin-top: 10px; 
+  font-size: 18px; 
+  color: #333; 
+  font-weight: bold; 
+}
+
+.signInBox {
+  width: 400px; 
+  height: 500px; 
+  padding: 20px;
+  background: linear-gradient(to bottom, #007BFF 52%, #004A99 100%);
+  font-weight: 500; 
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submitSignIn {
+  background-color: orange;
+  width: 100%;
+  border-radius: 100px;
+  border: 0;
+  font-weight: 500; 
+}
+
+.titleSignIn {
+  font-size: 30px;
+  width: 100%;
+  margin-left: 30%;
+}
+
+.googleButton {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; /* Horizontally center content */
+  gap: 20px; /* Space between the logo and text */
+  width: 100%; /* Button width */
+  background-color: rgb(255, 255, 255); /* White background */
+  color: #000000; /* Neutral text color */
+  font-size: 16px; /* Text size */
+  font-weight: 500; /* Text weight */
+  border-radius: 100px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+.googleLogo {
+  width: 20px; /* Logo width */
+  height: 20px; /* Logo height */
+}
+
+.separator {
+  display: flex; /* Use flexbox for horizontal alignment */
+  align-items: center; /* Vertically center the items */
+  justify-content: center; /* Center the content horizontally */
+  width: 100%; /* Full-width container */
+  gap: 10px; /* Space between the text and lines */
+  margin: 20px 0; /* Add spacing around the separator */
+}
+
+.line {
+  flex-grow: 1; /* Allow the lines to grow and take up available space */
+  height: 1px; /* Thickness of the line */
+  background-color: #ccc; /* Light gray color for the line */
+}
+
+.separatorText {
+  color: #ffffff; /* Neutral text color */
+  font-size: 14px; /* Text size */
+  font-weight: 500; /* Text weight */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.checkboxSignIn {
+  font-weight: 100; /* Text weight */
+}
+
+.inputSignin {
+  border-radius: 100px;
+}
+
+.submitSignInSignUp {
+  background-color: #007BFF;
+  width: 100%;
+  border-radius: 100px;
+  border: 0;
+  font-weight: 500; 
+}
