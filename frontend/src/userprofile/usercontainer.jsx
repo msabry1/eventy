@@ -3,7 +3,7 @@ import Navbar from "../navbar/navbar";
 import "./usercontainer.css"
 
 // Scrollable Container Component
-const Usercontainer = () => {
+const UserContainer = () => {
   return (
     <>
     <div className="scrollable-container">
