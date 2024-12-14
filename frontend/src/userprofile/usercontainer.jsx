@@ -1,23 +1,33 @@
 import React from "react";
-import Navbar from "../navbar/navbar";
 import "./usercontainer.css"
+import logo from '../assets/lll.png';
 
-// Scrollable Container Component
-const UserContainer = () => {
+
+const UserContainer = ({ userName, userType, userBio, userFollowers, userFollowing, userTags}) => {
+
   return (
-    <>
     <div className="scrollable-container">
-      <div className="scrollable-content">
-        {/* Replace this content with dynamic data */}
-        {[...Array(15).keys()].map((item) => (
-          <div className="content-item" key={item}>
-            Item {item + 1}
-          </div>
+      <div className="profile-image-container">
+        <img src={logo} alt="profile" className="profile-image" />
+      </div>
+      <div className="user-info">
+        <h2 className="user-name">{userName}</h2>
+        <p className="user-type">{userType}</p>
+        <p className="user-bio">{userBio}</p>
+      </div>
+      <div className="stats-container">
+          <span className="followers">followers<br/>{userFollowers} </span>
+          <span className="following"> following<br/>{userFollowing}</span>
+      </div>
+      <div className="tags-container">
+        {userTags.map((tag, index) => (
+          <span key={index} className="tag">
+            {tag}
+          </span>
         ))}
       </div>
     </div>
-    </>
   );
 };
 
-export default UserContainer
+export default UserContainer;

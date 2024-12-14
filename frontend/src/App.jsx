@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react'
 
 import Profile from './userprofile/profile'

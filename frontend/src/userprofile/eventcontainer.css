@@ -2,14 +2,11 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #f0f0f0; /* Optional */
     height: 100vh;
   }
   
   .scrollable-container {
     height: 80vh;
-    width: 50%;
-    flex: 1;
     margin: 0 10px;
     background-color: #fff;
     border: 1px solid #ccc;
