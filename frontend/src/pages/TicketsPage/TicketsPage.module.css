@@ -1,7 +1,10 @@
 .container{
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 50px; */
+    display:flex;
+    flex-wrap: wrap; 
+    gap: 10px;
     width: 80%;
     margin: auto;
     padding: 30px;

@@ -22,4 +22,4 @@ const EventContainer = ({ title }) => {
   );
 };
 
-export default Eventcontainer
+export default EventContainer

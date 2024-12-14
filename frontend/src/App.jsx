@@ -1,15 +1,17 @@
 import { useState } from 'react'
-
-import Profile from './userprofile/profile'
-function App() {
 import SignUp from "./pages/sign-up/sign-up"
 import SignIn from "./pages/sign-in/sign-in"
-
+import Profile from './userprofile/profile'
+import TicketsPage from './pages/TicketsPage/TicketsPage'
 function App() {
- 
+
+
   return (
     <>
-     <Profile/>
+    {/* <TicketsPage /> */}
+    {/* <SignUp /> */}
+    {/* <SignIn /> */}
+    {/* <Profile /> */}
     </>
   )
 }
