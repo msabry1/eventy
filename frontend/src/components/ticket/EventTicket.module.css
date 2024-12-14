@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #f09023;
+    --main-color-dark: #f38910;
+}
+.eventTicket {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.eventDetails {
+    height: 200px;
+    padding: 1rem 2rem;
+    background-color: var(--main-color);
+    --s: 20px; /* control the radius of the cut */
+    mask: radial-gradient(var(--s) at var(--s) var(--s),#0000 98%,#000) calc(-1*var(--s)) calc(-1*var(--s));
+    border-right: dashed black 1px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 15px;
+
+    font-weight: bold;
+}
+
+.eventDetails h3 {
+    font-size: 1.5rem; 
+    font-weight: bold;
+}
+
+.eventDetails p {
+    font-size: 1rem; 
+}
+
+.ticketStatus {
+    background-color: #ea580c;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.ticketStatus{
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.qrCode {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    background-color: var(--main-color); 
+    padding: 1rem;
+    --s: 20px;
+    mask: radial-gradient(var(--s) at var(--s) var(--s),#0000 98%,#000) calc(-1*var(--s)) calc(-1*var(--s));
+    
+}
+
+.qrCode img {
+    width: 150px;
+    height: auto;
+}
+
+.eventTicket:hover .eventDetails,
+.eventTicket:hover .qrCode{
+    background-color: var(--main-color-dark);
+}
+  
