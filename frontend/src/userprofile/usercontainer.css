@@ -1,0 +1,94 @@
+.app {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f0f0f0; /* Optional */
+    height: 100vh;
+  }
+  
+  .scrollable-container {
+    height: 80vh;
+    width: 50%;
+    flex: 1;
+    margin: 0 10px;
+    background-color: #fff;
+    border: 1px solid #313131;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+  }
+
+  .profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+    margin-bottom: 4%;
+
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #b6d4c5;
+    object-fit: cover;
+  }
+
+  .user-info {
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .user-name {
+    font-size: 30px;
+    font-weight: bold;
+    color: #58554e;
+    margin: 5px 0;
+  }
+
+  .user-type {
+    font-size: 16px;
+    color: #999;
+  }
+
+  .user-bio {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  .stats-container {
+    font-size: 25px;
+    color: #58554e;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 5%;
+  }
+
+  .tag {
+    background-color: #b6d4c5;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .stats{
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+
+  }
