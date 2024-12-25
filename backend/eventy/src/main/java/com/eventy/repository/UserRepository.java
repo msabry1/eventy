@@ -4,7 +4,9 @@ import com.eventy.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    //our custom queries
+    public Optional<User> findByEmail(String email);
 }

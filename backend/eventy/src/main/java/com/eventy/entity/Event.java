@@ -31,9 +31,7 @@ public class Event {
     @JoinColumn(name = "creator_id")
     private User user;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private Address address;
+    private String address;
 
     @Column(name = "comments")
     private Long commentsCnt ;

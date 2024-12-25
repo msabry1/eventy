@@ -1,6 +1,5 @@
 package com.eventy.dto.response;
 
-import com.eventy.entity.Address;
 import com.eventy.enums.EventCategory;
 import jakarta.persistence.Lob;
 import lombok.Data;
