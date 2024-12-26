@@ -1,0 +1,67 @@
+/* Container for the search bar */
+.searchBarContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Search bar styling */
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: #f2f6fc; /* Light background */
+  border-radius: 20px; /* Rounded edges */
+  padding: 0.5rem 1rem;
+  width: 400px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Wrapper for the search input */
+.searchInputWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* Search icon inside the input */
+.searchIcon {
+  margin-right: 0.5rem;
+  color: #a0aec0; /* Gray color */
+}
+
+/* Search input styling */
+.searchInput {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #4a5568; /* Darker gray */
+  flex: 1;
+}
+
+/* Filter section styling */
+.filterSection {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  border-left: 1px solid #e2e8f0; /* Divider */
+  padding-left: 1rem;
+}
+
+/* Filter text styling */
+.filterText {
+  font-size: 0.875rem;
+  color: #a0aec0; /* Gray */
+  margin-right: 0.5rem;
+}
+
+/* Filter icon */
+.filterIcon {
+  color: #a0aec0; /* Gray */
+  font-size: 1.25rem; /* Slightly larger icon */
+}
+
+/* Focus state for input */
+.searchInput:focus {
+  color: #2d3748; /* Darker text */
+}
