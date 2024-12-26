@@ -35,5 +35,6 @@ public class User {
     private Long ticketsCnt;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private Set<Ticket> tickets = new HashSet<>();
 }

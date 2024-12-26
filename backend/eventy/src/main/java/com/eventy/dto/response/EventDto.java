@@ -21,7 +21,7 @@ public class EventDto {
     private byte[] creatorPhoto;
     private String creatorName;
     private Long creatorId;
-    private Address address;
+    private String address;
     private Long upVotes;
     private Long downVotes;
     private Long commentsCnt;
