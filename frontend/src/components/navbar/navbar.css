@@ -1,22 +1,27 @@
 *{
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
 .navbar {
   display: flex;
+  top: 0; /* Sticks to the top of the page */
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(to right, #003f8c, #0072ff);
   padding: 10px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: #fff;
+  z-index: 99999; /* Keeps navbar above other content */
+  position: sticky; /* Makes navbar sticky */
+  flex-shrink: 0; /* Prevent resizing */
+
 }
 
 .navbar-logo .logo {
   margin-left: 10%;
-  width: 150;
+  width: 150px; /* Added px for proper sizing */
   height: 50px; /* Adjust size to your logo */
 }
 
@@ -63,3 +68,14 @@
   width: 100%;
 }
 
+/* Styles for <Link> elements inside .navbar-button to remove default hyperlink styling */
+.navbar-button a {
+  color: inherit; /* Inherits the white color from the navbar-button */
+  text-decoration: none; /* Removes the underline */
+  display: block; /* Ensures the link fills the button for better clickability */
+}
+
+.navbar-button a:hover {
+  text-decoration: none; /* Ensures no underline appears on hover */
+  color: inherit; /* Optional: keeps the hover color consistent with button hover state */
+}

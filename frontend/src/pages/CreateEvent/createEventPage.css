@@ -1,0 +1,58 @@
+.event-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="file"],
+  .date-picker,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* ensures padding doesn't affect width */
+  }
+  
+  textarea {
+    height: 120px; /* larger text area for descriptions */
+    resize: vertical; /* allow vertical resizing */
+  }
+  
+  .submit-button {
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #004494;
+  }
+  
+  /* Additional styles for React DatePicker */
+  .date-picker {
+    font-size: 16px; /* Ensures consistent font size */
+  }
+  

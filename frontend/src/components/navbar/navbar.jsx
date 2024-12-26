@@ -1,7 +1,8 @@
 import React from "react";
 import "./Navbar.css"; // Include this CSS file for styling
 import { FaTicketAlt, FaHome, FaUser } from "react-icons/fa";
-import logo from '../assets/zzz.png';
+import logo from '../../assets/zzz.png';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,18 +11,27 @@ const Navbar = () => {
       <img src={logo} alt="Eventy Logo" className="logo" />
       </div>
       <div className="navbar-links">
+      <Link to="/myTickets">
         <button className="navbar-button">
           <FaTicketAlt className="icon" />
           <span>My Tickets</span>
         </button>
+        </Link>
+        <Link to="/myFeed">
         <button className="navbar-button">
           <FaHome className="icon" />
           <span>My Feed</span>
         </button>
+        </Link>
+
+        <Link to="/myProfile">
+
         <button className="navbar-button">
           <FaUser className="icon" />
           <span>My Profile</span>
-        </button>
+          </button>
+          </Link>        
+
       </div>
     </nav>
   );

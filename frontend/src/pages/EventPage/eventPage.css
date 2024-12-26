@@ -1,0 +1,79 @@
+.event-page {
+    font-family: Arial, sans-serif;
+    height:100%;
+    width:50%;
+    background-color: aliceblue;
+    justify-self: center;
+  }
+  
+.event-photo {
+    width: 60px;
+    height: 60px;
+    margin-right:10px;
+}
+
+.event-infoo {
+    width: 100%;
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    justify-content: space-between; /* Distributes space between items and aligns button to the right */
+    padding: 20px;
+  }
+  
+  .top-cont {
+    width: 80%; /* Top content takes 80% of the event-info container's width */
+    display: flex;
+    flex-direction: column; /* Stacks h1 and p above each other */
+  }
+  
+  .book-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Centers text inside the button */
+  }
+  
+  
+  .book-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .event-additional-info {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .event-organizers, .event-photos, .event-details {
+    background-color: #dadada;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .image-container {
+    width: 100%;
+    overflow: hidden; /* Hides parts of the img that overflow the container */
+    display: flex;
+    height:300px;
+
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+  }
+
+  .ev-image{
+    width:100%;
+  }
+  
+
+  

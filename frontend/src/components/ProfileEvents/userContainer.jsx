@@ -1,6 +1,6 @@
 import React from "react";
-import "./usercontainer.css"
-import logo from '../assets/lll.png';
+import "./userContainer.css"
+import logo from '../../assets/lll.png';
 
 
 const UserContainer = ({ userName, userType, userBio, userFollowers, userFollowing, userTags}) => {

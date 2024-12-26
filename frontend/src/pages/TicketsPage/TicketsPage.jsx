@@ -1,6 +1,6 @@
 import { useState } from "react"
 import EventTicket from "../../components/ticket/EventTicket"
-import Navbar from "../../navbar/navbar"
+import Navbar from "../../components/navbar/navbar"
 import styles from "./TicketsPage.module.css"
 const TicketsPage = () => {
     const [tickets, setTickets] = useState([

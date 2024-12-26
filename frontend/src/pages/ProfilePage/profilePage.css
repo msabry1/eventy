@@ -1,0 +1,12 @@
+
+.container-flex{
+    display:flex;
+    background-color: #D6E4F2;
+    gap: 2%;
+    padding-left: 5%; /* Space from the left inside the container */
+    padding-right: 5%; /* Space from the right inside the container */
+}
+
+body {
+    background-color: #D6E4F2;
+ }

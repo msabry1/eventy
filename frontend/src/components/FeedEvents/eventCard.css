@@ -1,0 +1,38 @@
+.event-card {
+    height:300px;
+    display: flex; /* Use flexbox to lay out children side by side */
+    background: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    align-items: center; /* Align items vertically in the center */
+}
+
+.event-info {
+    width: 60%; /* Takes up remaining 60% of the space */
+    padding-right: 10px; /* Adds some padding between the text and the image */
+}
+
+.image-crop {
+    height: 100%; /* Use 100% height of the parent container */
+    width: 40%; /* Width as 40% of the event card */
+    overflow: hidden; /* Hides parts of the img that overflow the container */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+.event-image {
+    height: 100%; /* Make the image fill the container */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.book-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
