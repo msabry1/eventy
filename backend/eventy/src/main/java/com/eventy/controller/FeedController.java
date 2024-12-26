@@ -23,7 +23,7 @@ public class FeedController {
 
     @GetMapping("/feed")
     public List<Event> getAllEvents() {
-        return feedService.getAllEvents();
+        return feedService.getRecentEvents();
     }
 
 }

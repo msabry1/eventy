@@ -15,8 +15,8 @@ public class FeedService {
         this.eventRepository = eventRepository;
     }
 
-    public List<Event> getAllEvents() {
-        return eventRepository.findAll();
+    public List<Event> getRecentEvents() {
+        return eventRepository.findRecentEvents();
     }
 
     public Optional<Event> getEventById(Long eventId) {
