@@ -1,11 +1,9 @@
 .app {
-    display: flex;
     justify-content: space-between;
     padding: 20px;
     background-color: #f0f0f0; /* Optional */
     height: 100vh;
   }
-  
   .scrollable-container {
     height: 80vh;
     width: 50%;
@@ -14,18 +12,42 @@
     background-color: #fff;
     border: 1px solid #313131;
     border-radius: 10px;
-    overflow: hidden;
+    overflow-y: auto;  /* Makes the container scrollable */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 2%;
+    scroll-behavior: smooth;  /* Smooth scrolling */
   }
+  .upload-button {
+    width: 30px;                 
+    height: 30px;                
+    border-radius: 50%;          
+    background-color: #c6bcbc;   
+    color: white;               
+    font-size: 24px;            
+    font-weight: bold;         
+    display: flex;              
+    justify-content: center;     
+    align-items: center;         /* Centers text vertically */
+    cursor: pointer;             /* Pointer cursor on hover */
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.1); /* Adds shadow */
+    margin:auto;
+    translate: 35px;
+    transform: translateY(-20px); 
+   
+    
+           
+  }
+.upload-button:hover {
+  background-color: #0056b3;
+}
 
   .profile-image-container {
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 8%;
     margin-bottom: 4%;
-
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .profile-image {
@@ -39,6 +61,7 @@
   .user-info {
     text-align: center;
     flex-grow: 1;
+    
   }
 
   .user-name {
@@ -68,6 +91,7 @@
     margin-top: 10px;
     border-top: 1px solid #e0e0e0;
     padding-top: 10px;
+    
   }
 
   .tags-container {
@@ -91,4 +115,85 @@
     display: flex;
     justify-content: space-between;
 
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+     margin-left: 10px;
+  }
+  
+  .tag {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    
+  }
+  
+  .remove-tag {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  
+  .remove-tag:hover {
+    color: #ff4d4d;
+  }
+  
+  .add-tag {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between input and button */
+    
+  }
+  
+
+  
+  .add-tag-button {
+    padding: 6px 12px; /* Smaller button */
+    font-size: 14px; /* Smaller font size */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto; /* Adjust width to fit button content */
+  }
+  
+  .add-tag-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .cancel-button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #ccc;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .edit-button{
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #ccc;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    background-color: #999;
   }

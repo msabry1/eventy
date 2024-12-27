@@ -3,18 +3,21 @@ import "./eventcontainer.css"
 import logo from '../../assets/lll.png';
 import ProfileEvent from './profileEvent'; // Import the new component
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 // Scrollable Container Component
 const CreatedEvents = ({ title }) => {
+  const nav = useNavigate()
+  const handleAddEevent = ()=>{
+     nav("/myProfile/createEvent")
+  }
   return (
     <>
     <div className="scrollable-container">
       <div className="container-title">{title}
-        <Link to="createEvent">
-      <button className="addEventButton">+</button>
-      </Link>
+      <button className="addEventButton" onClick={handleAddEevent}>+</button>
       </div>
       <div className="scrollable-content">
         {/* Replace this content with dynamic data */}

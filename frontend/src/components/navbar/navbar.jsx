@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.css"; // Include this CSS file for styling
 import { FaTicketAlt, FaHome, FaUser } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 import logo from '../../assets/zzz.png';
 import { Link } from "react-router-dom";
 
@@ -30,7 +31,15 @@ const Navbar = () => {
           <FaUser className="icon" />
           <span>My Profile</span>
           </button>
-          </Link>        
+          </Link> 
+
+          <Link to="/signIn">
+          <button className="navbar-button">
+          <FiLogOut className="icon" />
+          <span>Log out</span>
+          </button>
+          </Link> 
+                 
 
       </div>
     </nav>

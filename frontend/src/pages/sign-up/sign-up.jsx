@@ -4,9 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './SignUp.module.css'; // Import CSS Module
 import logo from '../../assets/logo.png';
 import googleLogo from '../../assets/google-logo.png';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
-    console.log(styles)
+   const navgation =  useNavigate()
+   const handleSumbit=()=>{
+    navgation("/signIn")
+   }
   return (
     <div className={styles.signInContainer}>
       {/* Left Panel */}
@@ -19,6 +23,7 @@ function SignUp() {
           variant="primary"
           type="submit"
           className={styles.submitSignInSignUp}
+          onClick={handleSumbit}
         >
           Sign In
         </Button>
@@ -56,6 +61,7 @@ function SignUp() {
             variant="primary"
             type="submit"
             className={styles.submitSignIn}
+            onClick={handleSumbit}
           >
             Submit
           </Button>

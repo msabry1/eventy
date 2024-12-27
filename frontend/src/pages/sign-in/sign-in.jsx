@@ -4,8 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './SignIn.module.css'; // Import CSS Module
 import logo from '../../assets/logo.png';
 import googleLogo from '../../assets/google-logo.png';
+import { useNavigate } from 'react-router-dom';
+
 
 function SignIn() {
+
+  const navigate = useNavigate();
+  
+const handleSumbit = () => {
+  navigate('/myFeed');
+};
+const handleSignUp = () =>{
+  navigate('/signUp')
+}
   return (
     <div className={styles.signInContainer}>
       <div className={styles.signInBox}>
@@ -28,7 +39,7 @@ function SignIn() {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" className={styles.inputSignin} />
           </Form.Group>
-          <Button variant="primary" type="submit" className={styles.submitSignIn}>
+          <Button variant="primary" type="submit" className={styles.submitSignIn} onClick={handleSumbit}>
             Submit
           </Button>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -39,7 +50,7 @@ function SignIn() {
       <div className={styles.squareContainer}>
         <img src={logo} alt="Eventy Logo" className={styles.squareImage} />
         <span className={styles.squareContainerDontHave}>Don't have an account?</span>
-        <Button variant="primary" type="submit" className={styles.submitSignInSignUp}>
+        <Button variant="primary" type="submit" className={styles.submitSignInSignUp} onClick={handleSignUp}>
           Sign up
         </Button>
       </div>

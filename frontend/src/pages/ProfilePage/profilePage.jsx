@@ -14,7 +14,7 @@ const ProfilePage = () => {
     userBio: "SHIIIIIIIIIIIIIIIIIIIIIT",
     userFollowers: 99999,
     userFollowing: 1,
-    userTags: ["Sports", "Music", "Art", "Books"]
+    userTags: ["Sports", "Music", "Art", "Books","kero"]
   };
   return (
     <>
