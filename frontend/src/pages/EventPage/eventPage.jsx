@@ -41,6 +41,16 @@ const EventPage = () => {
           <p>{event.details}</p>
         </div>
       </div>
+
+
+
+
+      
+
+
+
+
+
     </div>
     </>
   );

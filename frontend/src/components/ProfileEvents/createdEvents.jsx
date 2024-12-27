@@ -3,9 +3,17 @@ import "./eventcontainer.css";
 import logo from '../../assets/lll.png';  // Ensure correct path
 import ProfileEvent from './profileEvent'; // Ensure the name matches the exported component exactly
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Scrollable Container Component
 const CreatedEvents = ({ title }) => {
+
+  const nav = useNavigate()
+  const handleAddEevent = ()=>{
+     nav("/myProfile/createEvent")
+  }
+
+
   // Arbitrary array of event objects
   const events = [
     {
@@ -54,9 +62,7 @@ const CreatedEvents = ({ title }) => {
       <div className="scrollable-container">
         <div className="container-title">
           {title}
-          <Link to="createEvent">
-            <button className="addEventButton">+</button>
-          </Link>
+            <button className="addEventButton" onClick={handleAddEevent}>+</button>
         </div>
         <div className="scrollable-content">
           {/* Map over the events array to create a ProfileEvent for each event */}
