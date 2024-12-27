@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class CommentCreate {
+public class CommentCreateDTO {
 
     @NotNull
     @Size(max=1000, message = "comment content can't be greater than 1000 charchter" )

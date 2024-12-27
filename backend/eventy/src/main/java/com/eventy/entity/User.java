@@ -7,8 +7,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 @Entity
@@ -36,5 +38,5 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
-    private Set<Ticket> tickets = new HashSet<>();
+    private List<Ticket> tickets = new ArrayList<>();
 }

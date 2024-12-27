@@ -11,5 +11,5 @@ public class CommentDto {
     private String ownerId;
     private String ownerName;
     @Lob
-    private byte[] ownerphoto;
+    private byte[] ownerPhoto;
 }
