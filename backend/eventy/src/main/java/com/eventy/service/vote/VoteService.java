@@ -37,11 +37,7 @@ public class VoteService {
         }
         event.get().setLikesCnt(event.get().getLikesCnt() +
                 (voteDto.getType().equals(VoteType.UPVOTE) ? 1 : -1 ) );
-        Like like = Like.builder()
-                .user(user)
-                .type(voteDto.getType())
-                .event(event.get())
-                .build();
+        Like like = voteMapper.mapToLike(voteDto, user, event.get());
         likeRepository.save(like);
     }
 

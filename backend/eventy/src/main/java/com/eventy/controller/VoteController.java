@@ -21,7 +21,7 @@ public class VoteController {
     }
 
     @PostMapping("votes")
-    public ResponseEntity<VoteCreateDTO> createVote(VoteCreateDTO voteDto, @CurrentUser User user){
+    public ResponseEntity<VoteCreateDTO> createVote(@RequestBody VoteCreateDTO voteDto, @CurrentUser User user){
         voteService.addVote(voteDto, user);
         return ResponseEntity.ok(voteDto);
     }

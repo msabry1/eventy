@@ -37,11 +37,7 @@ public class CommentService {
 
         event.get().setCommentsCnt(event.get().getCommentsCnt() + 1);
 
-        Comment comment = Comment.builder()
-                .content(commentDto.getContent())
-                .user(user)
-                .event(event.get())
-                .build();
+        Comment comment = commentMapper.mapToComment(commentDto, user, event.get());
 
         commentRepository.save(comment);
     }
