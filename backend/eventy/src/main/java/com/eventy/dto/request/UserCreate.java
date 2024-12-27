@@ -20,4 +20,10 @@ public class UserCreate {
     @NotNull(message = "password can't be null")
     @Size(min=8,max=100, message = "password must be between 8 and 100 charachters")
     private String password;
+
+    @NotNull(message = "bio can't be null")
+    @Size(max=254, message = "bio must be less than 255 charchters")
+    private String bio;
+
+    private byte[] photo;
 }

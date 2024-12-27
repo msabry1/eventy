@@ -1,14 +1,13 @@
 package com.eventy.controller;//package com.eventy.controller;
 
 import com.eventy.dto.request.LoginRequest;
+import com.eventy.dto.request.UserCreate;
+import com.eventy.dto.response.LoginTokenResponse;
 import com.eventy.entity.User;
 import com.eventy.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
@@ -18,18 +17,18 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user) {
-        return ResponseEntity.ok(authService.register(user));
+    public ResponseEntity<String> register(@RequestBody UserCreate userDto) {
+        authService.register(userDto);
+        return ResponseEntity.ok("User registered successfully");
     }
 
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest loginRequest) {
-        String token = authService.authenticate(loginRequest);
+    public ResponseEntity<LoginTokenResponse> login(@RequestBody LoginRequest loginRequest) {
 
-        Map<String, String> response = new HashMap<>();
-        response.put("token", token);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(
+            authService.authenticate(loginRequest)
+        );
     }
 }
 

@@ -24,13 +24,10 @@ public class PaymentController {
 
     @PostMapping("/create/{eventId}")
     public ResponseEntity<PaymentLinkResponseDto> createPaymentIntent(@PathVariable String eventId, @CurrentUser User currentUser) {
-//        Event event = eventRepository
-//                .findById(Long.parseLong(eventId))
-//                .orElseThrow(() -> new RuntimeException("Event not found")
-//                );
-        Event event = new Event();
-        event.setId(Long.parseLong(eventId));
-        event.setPrice(15.0);
+        Event event = eventRepository
+                .findById(Long.parseLong(eventId))
+                .orElseThrow(() -> new RuntimeException("Event not found")
+                );
 
         try {
             PaymentLink paymentLink = stripeLinkGeneratorService.createPaymentLink(currentUser,event);

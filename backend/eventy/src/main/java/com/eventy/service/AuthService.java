@@ -1,6 +1,8 @@
 package com.eventy.service;
 
 import com.eventy.dto.request.LoginRequest;
+import com.eventy.dto.request.UserCreate;
+import com.eventy.dto.response.LoginTokenResponse;
 import com.eventy.entity.User;
 import com.eventy.repository.UserRepository;
 import com.eventy.security.jwt.JwtUtil;
@@ -21,7 +23,7 @@ public class AuthService {
     @Autowired
     private JwtUtil jwtUtil;
 
-    public String authenticate(LoginRequest loginRequest) {
+    public LoginTokenResponse authenticate(LoginRequest loginRequest) {
         User user = userRepository.findByEmail(loginRequest.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
@@ -29,11 +31,19 @@ public class AuthService {
             throw new BadCredentialsException("Invalid password");
         }
 
-        return jwtUtil.generateToken(user.getEmail());
+        String jwtToken = jwtUtil.generateToken(user.getEmail());
+        return new LoginTokenResponse(jwtToken);
     }
 
-    public User register(User user) {   //will be modified later
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+    public void register(UserCreate userDto) {
+        User user = User.builder()
+                .email(userDto.getEmail())
+                .name(userDto.getUsername())
+                .bio(userDto.getBio())
+                .photo(userDto.getPhoto())
+                .password(passwordEncoder.encode(userDto.getPassword()))
+                .ticketsCnt(0L)
+                .build();
+        userRepository.save(user);
     }
 }
