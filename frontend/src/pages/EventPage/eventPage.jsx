@@ -2,16 +2,13 @@ import React from 'react';
 import './eventPage.css'; // Ensure to create and import the corresponding CSS
 import logo from '../../assets/lll.png';
 import Navbar from '../../components/navbar/navbar';
+import { useLocation } from "react-router-dom";
+
 
 const EventPage = () => {
-    const event = {
-        name: 'Community Festival',
-        description: 'Join us for a day of fun, food, and festivities!',
-        imageUrl: 'url_to_event_image.jpg',
-        organizers: 'Local Community Group',
-        photos: ['url_to_photo1.jpg', 'url_to_photo2.jpg'],
-        details: 'This event is free and open to the public. Activities start at noon.'
-      };
+  const location = useLocation(); 
+  const {event} = location.state || {}; 
+
 
   return (
     <>

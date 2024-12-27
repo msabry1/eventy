@@ -44,6 +44,9 @@
     border-radius: 5px;
     background-color: #fafafa;
   }
+  .content-text {
+    margin-top: 2%;
+  }
 
   
   .content-image {
@@ -70,7 +73,6 @@
   .addEventButton {
     padding-left: 2% !important;;  
     padding-right: 2% !important;;
-
     background: linear-gradient(to right, #2146ff, #F7931E); /* Gradient background */
     color: white;                  /* White text color for contrast */
     font-family: 'Arial', sans-serif; /* Modern, readable font */
