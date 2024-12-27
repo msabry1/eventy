@@ -1,5 +1,6 @@
 package com.eventy.service.stripe;
 
+import com.eventy.dto.request.TicketCreateDTO;
 import com.eventy.exceptions.PaymentSigntureException;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.model.Event;
@@ -15,7 +16,7 @@ public class StripeWebhookService {
     @Value("${stripe.webhook.secret}")
     private String endpointSecret;
 
-    public Map<String,String> handleSigntureAndGetTransctionData(String payload, String sigHeader)  {
+    public TicketCreateDTO handleSigntureAndGetTransctionData(String payload, String sigHeader)  {
         Event event;
         try {
             event = Webhook.constructEvent(payload, sigHeader, endpointSecret);
@@ -25,14 +26,14 @@ public class StripeWebhookService {
         return handleStripeEventData(event);
     }
 
-    public Map<String,String> handleStripeEventData(Event event)  {
+    public TicketCreateDTO handleStripeEventData(Event event)  {
         if ("checkout.session.completed".equals(event.getType())) {
             return handleStripeSessionCompletedEvent(event);
         }
         throw new RuntimeException("Event type not supported");
     }
 
-    public Map<String,String> handleStripeSessionCompletedEvent(Event event)  {
+    public TicketCreateDTO handleStripeSessionCompletedEvent(Event event)  {
         String eventJson = event.getData().toJson() ;
 
         return StripeJsonParser.extractMetadataAndStatus(eventJson);

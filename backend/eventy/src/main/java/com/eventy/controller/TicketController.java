@@ -21,11 +21,6 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
-    @PostMapping("tickets")
-    public ResponseEntity<TicketCreateDTO> createTicket(@RequestBody TicketCreateDTO ticketDto, @CurrentUser User user){
-        ticketService.addTicket(ticketDto, user);
-        return ResponseEntity.ok(ticketDto);
-    }
 
     @GetMapping("tickets")
     public ResponseEntity<List<TicketDTO>> getTickets(@CurrentUser User user){
@@ -33,16 +28,16 @@ public class TicketController {
         return ResponseEntity.ok(tickets);
     }
 
-    @DeleteMapping("tickets/{id}")
-    public ResponseEntity<Void> deleteTicketById(@PathVariable Long id, @CurrentUser User user){
-        ticketService.deleteTicketById(id, user);
-        return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("tickets/{id}")
-    public ResponseEntity<TicketDTO> getTicketById(@PathVariable Long id){
-        TicketDTO ticket = ticketService.getTicketById(id);
-        return ResponseEntity.ok(ticket);
-    }
+//    @DeleteMapping("tickets/{id}")
+//    public ResponseEntity<Void> deleteTicketById(@PathVariable Long id, @CurrentUser User user){
+//        ticketService.deleteTicketById(id, user);
+//        return ResponseEntity.noContent().build();
+//    }
+//
+//    @GetMapping("tickets/{id}")
+//    public ResponseEntity<TicketDTO> getTicketById(@PathVariable Long id){
+//        TicketDTO ticket = ticketService.getTicketById(id);
+//        return ResponseEntity.ok(ticket);
+//    }
 
 }

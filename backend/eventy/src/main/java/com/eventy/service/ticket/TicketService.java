@@ -31,13 +31,19 @@ public class TicketService {
         this.ticketMapper = ticketMapper;
     }
 
-    public void addTicket(TicketCreateDTO ticketCreateDTO, User user) {
-        Ticket ticket = new Ticket();
-        ticket.setUser(user);
+    public void addTicket(TicketCreateDTO ticketCreateDTO) {
+        User user = userRepository.findById(ticketCreateDTO.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        Event event = eventRepository.findById(ticketCreateDTO.getEventId())
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+
         user.setTicketsCnt(user.getTicketsCnt() + 1);
+        Ticket ticket = Ticket.builder()
+                .event(event)
+                .user(user)
+                .transactionId(ticketCreateDTO.getTransactionId())
+                .build();
         userRepository.save(user);
-        Optional<Event> event = eventRepository.findById(ticketCreateDTO.getEventId());
-        event.ifPresent(ticket::setEvent);
         ticketRepository.save(ticket);
     }
 
