@@ -1,23 +1,21 @@
-package com.eventy.stripe;
+package com.eventy.service.stripe;
 
+import com.eventy.entity.Event;
+import com.eventy.entity.User;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
-import com.stripe.model.PaymentIntent;
 import com.stripe.model.PaymentLink;
 import com.stripe.model.Price;
-import com.stripe.param.PaymentIntentCreateParams;
 import com.stripe.param.PaymentLinkCreateParams;
 import com.stripe.param.PriceCreateParams;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 
 @Service
-public class StripeService {
+public class StripeLinkGeneratorService {
+
     @Value("${stripe.api.key}")
     private String stripeApiKey;
 
@@ -26,29 +24,30 @@ public class StripeService {
         Stripe.apiKey = stripeApiKey;
     }
 
-    public PaymentLink createPaymentLink() throws StripeException {
-        String userId = "2";
-        String productId = "10";
-
+    public PaymentLink createPaymentLink(User currentUser, Event event) throws StripeException {
+        Long priceByCent = Math.round(event.getPrice() * 100);
         PaymentLinkCreateParams params = PaymentLinkCreateParams.builder()
                 .addLineItem(PaymentLinkCreateParams.LineItem.builder()
-                        .setPrice(createPrice(userId, productId))
+                        .setPrice(createPrice(priceByCent))
                         .setQuantity(1L)
                         .build())
+                .putMetadata("userId", currentUser.getId().toString())
+                .putMetadata("eventId", event.getId().toString())
                 .build();
 
         return PaymentLink.create(params);
     }
 
-    private String createPrice(String userId, String productId) throws StripeException {
-        String structuredName = String.format("Payment_USER%s_PROD%s", userId, productId);
+    private String createPrice(Long ticketPrice) throws StripeException {
 
         PriceCreateParams priceParams = PriceCreateParams.builder()
                 .setCurrency("usd")
-                .setUnitAmount(1000L)
-                .setProductData(PriceCreateParams.ProductData.builder()
-                        .setName(structuredName)  // Store info in product name
-                        .build())
+                .setUnitAmount(ticketPrice)
+                .setProductData(
+                        PriceCreateParams.ProductData.builder()
+                                .setName("Ticket")
+                                .build()
+                )
                 .build();
 
         return Price.create(priceParams).getId();
