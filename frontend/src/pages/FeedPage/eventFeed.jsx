@@ -6,37 +6,48 @@ const EventFeed = () => {
   const events = [
     {
       id: 1,
-      name: 'Event Name',
+      name: 'hamada',
       description: ['Event Description', 'More details about the event'],
       date: 'DD/MM/YYYY',
       time: '07:00 PM EST',
       location: 'Location',
       price: '99$',
-      imageUrl: 'path_to_event_image.jpg'
+      image: 'path_to_event_image.jpg',
+      organizers:"hamada",
+      photos:[]
     },
     {
-        id: 1,
-        name: 'Event Name',
+        id: 2,
+        name: 'zena',
         description: ['Event Description', 'More details about the event'],
+        details:"eventttt ooffff bomm ta555",
         date: 'DD/MM/YYYY',
         time: '07:00 PM EST',
-        location: 'Location',
+        location: 'siko',
         price: '99$',
-        imageUrl: 'path_to_event_image.jpg'
+        image: 'path_to_event_image.jpg',
+        organizers:"hamada",
+        photos:[]
       },
       {
-        id: 1,
+        id: 3,
         name: 'Event Name',
         description: ['Event Description', 'More details about the event'],
+        details:"eventttt ooffff bomm ta555",
         date: 'DD/MM/YYYY',
         time: '07:00 PM EST',
         location: 'Location',
         price: '99$',
-        imageUrl: 'path_to_event_image.jpg'
+        image: 'path_to_event_image.jpg',
+        organizers:"hamada",
+        photos:[]
       },
-    // More events here
   ];
 
+
+
+
+  
   return (
     <>
       <Navbar />

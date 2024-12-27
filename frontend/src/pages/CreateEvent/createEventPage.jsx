@@ -31,10 +31,17 @@ const CreateEventForm = () => {
   };
 
   const handleImageChange = (e) => {
-    setEventData(prevState => ({
-      ...prevState,
-      eventImage: e.target.files[0] // Store the selected file
-    }));
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setEventData(prevState => ({
+          ...prevState,
+          eventImage: reader.result
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -128,15 +135,15 @@ const CreateEventForm = () => {
   </div>
 
   <div className="form-group">
-    <label htmlFor="eventImage">Event Image</label>
-    <input
-      type="file"
-      id="eventImage"
-      name="eventImage"
-      onChange={handleImageChange}
-      required
-    />
-  </div>
+          <label htmlFor="eventImage">Event Image</label>
+          <input
+            type="file"
+            id="eventImage"
+            name="eventImage"
+            onChange={handleImageChange}
+            required
+          />
+        </div>
 
   <button type="submit" className="submit-button">Add Event</button>
 </form>
