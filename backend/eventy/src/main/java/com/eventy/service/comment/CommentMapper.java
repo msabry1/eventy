@@ -1,7 +1,10 @@
 package com.eventy.service.comment;
 
+import com.eventy.dto.request.CommentCreateDTO;
 import com.eventy.dto.response.CommentDto;
 import com.eventy.entity.Comment;
+import com.eventy.entity.Event;
+import com.eventy.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -30,4 +33,13 @@ public class CommentMapper {
         }
         return commentDtos;
     }
+
+    public Comment mapToComment(CommentCreateDTO commentDto, User user, Event event) {
+        Comment comment = new Comment();
+        comment.setContent(commentDto.getContent());
+        comment.setUser(user);
+        comment.setEvent(event);
+        return comment;
+    }
+
 }

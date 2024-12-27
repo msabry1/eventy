@@ -8,7 +8,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "like_record")
-@Builder
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

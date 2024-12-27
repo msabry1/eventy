@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
-@Builder
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
