@@ -2,11 +2,13 @@ package com.eventy.entity;
 
 import com.eventy.enums.VoteType;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "like_record")
+@Builder
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

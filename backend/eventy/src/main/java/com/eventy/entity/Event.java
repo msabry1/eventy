@@ -1,7 +1,6 @@
 package com.eventy.entity;
 
 import com.eventy.enums.EventCategory;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
