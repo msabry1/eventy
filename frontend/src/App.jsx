@@ -8,6 +8,7 @@ import EventFeed from './pages/FeedPage/eventFeed'
 import EventPage from './pages/EventPage/eventPage'
 import CreateEventPage from './pages/CreateEvent/createEventPage'
 
+
 function App() {
 
 
@@ -25,8 +26,7 @@ function App() {
       <Route path="/myFeed" element={<EventFeed/>} />
       <Route path="/myProfile/createEvent" element={<CreateEventPage/>} />
       <Route path="/eventPage" element={<EventPage/>} />
-
-
+    
 
 
       </Routes>

@@ -1,0 +1,91 @@
+/* Main toolbar container */
+.toolbar {
+    display: flex; /* Arrange buttons/icons horizontally */
+    justify-content: space-between; /* Space out buttons */
+    align-items: center; /* Vertically center elements */
+    padding: 10px 15px;
+    background-color: #f8f9fa; /* Light background */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    margin-top: 10px;
+
+  }
+  
+  .book-button {
+    background-color: #007bff; /* Blue button for booking */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .book-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .icon {
+    font-size: 24px; /* Icon size */
+    margin: 0 10px; /* Space between icons */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease; /* Smooth transitions for effects */
+  }
+  
+  .icon:hover {
+    transform: scale(1.2); /* Enlarge icons on hover */
+  }
+  
+  .icon:active {
+    transform: scale(1); /* Restore size when clicked */
+  }
+  
+  /* Colors for the different states of icons */
+  .icon.fa-comments {
+    color: grey; /* Default color for comments */
+  }
+  
+  .icon.fa-comments.active {
+    color: #007bff; /* Blue when clicked */
+  }
+  
+  .icon.fa-thumbs-up {
+    color: grey; /* Default color for thumbs up */
+  }
+  
+  .icon.fa-thumbs-up.active {
+    color: green; /* Green when upvoted */
+  }
+  
+  .icon.fa-thumbs-down {
+    color: grey; /* Default color for thumbs down */
+  }
+  
+  .icon.fa-thumbs-down.active {
+    color: red; /* Red when downvoted */
+  }
+  .toolbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .icon-count {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: #333;
+  }
+  
