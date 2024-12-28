@@ -3,6 +3,7 @@ package com.eventy.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.eventy.dto.response.EventDto;
 import org.springframework.stereotype.Service;
 import com.eventy.entity.Event;
 import com.eventy.repository.EventRepository;

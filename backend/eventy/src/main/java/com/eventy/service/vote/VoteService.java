@@ -35,8 +35,11 @@ public class VoteService {
         if(event.isEmpty()){
             throw new IllegalArgumentException("no event with this id");
         }
-        event.get().setLikesCnt(event.get().getLikesCnt() +
-                (voteDto.getType().equals(VoteType.UPVOTE) ? 1 : -1 ) );
+        if (voteDto.getType() == VoteType.UPVOTE){
+            event.get().setUpVotes(event.get().getUpVotes() + 1);
+        } else {
+            event.get().setDownVotes(event.get().getDownVotes() + 1);
+        }
         Like like = voteMapper.mapToLike(voteDto, user, event.get());
         likeRepository.save(like);
     }
@@ -56,8 +59,11 @@ public class VoteService {
             throw new UnAuthorizedException("you are not authorized to remove this vote");
         }
         Event event = vote.get().getEvent();
-        event.setLikesCnt(event.getLikesCnt() +
-                (vote.get().getType().equals(VoteType.UPVOTE) ? -1 : 1 ) );
+        if (vote.get().getType() == VoteType.UPVOTE){
+            event.setUpVotes(event.getUpVotes() - 1);
+        } else {
+            event.setDownVotes(event.getDownVotes() - 1);
+        }
         likeRepository.delete(vote.get());
     }
 

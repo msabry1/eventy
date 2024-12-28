@@ -25,11 +25,13 @@ public class User {
 
     private String name;
     private String email;
+    @JsonIgnore
     private String password;
     private String bio;
 
     @Lob
     @Column(name = "photo")
+    @JsonIgnore
     private byte[] photo;
 
 

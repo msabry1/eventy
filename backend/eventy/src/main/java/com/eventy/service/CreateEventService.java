@@ -33,7 +33,8 @@ public class CreateEventService {
         newEvent.setPhoto(event.getPhoto());
         newEvent.setUser(creator);
         newEvent.setCommentsCnt(0L);
-        newEvent.setLikesCnt(0L);
+        newEvent.setUpVotes(0L);
+        newEvent.setDownVotes(0L);
         newEvent.setComments(new HashSet<>());
         newEvent.setLikes(new HashSet<>());
     

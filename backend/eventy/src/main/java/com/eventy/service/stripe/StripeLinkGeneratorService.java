@@ -33,6 +33,16 @@ public class StripeLinkGeneratorService {
                         .build())
                 .putMetadata("userId", currentUser.getId().toString())
                 .putMetadata("eventId", event.getId().toString())
+                .setAfterCompletion(
+                    PaymentLinkCreateParams.AfterCompletion.builder()
+                            .setType(PaymentLinkCreateParams.AfterCompletion.Type.REDIRECT)
+                            .setRedirect(
+                                    PaymentLinkCreateParams.AfterCompletion.Redirect.builder()
+                                            .setUrl("https://example.com/thank-you")
+                                            .build()
+                            )
+                            .build()
+                )
                 .build();
 
         return PaymentLink.create(params);

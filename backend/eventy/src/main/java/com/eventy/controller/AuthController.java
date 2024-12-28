@@ -4,6 +4,7 @@ import com.eventy.dto.request.LoginRequest;
 import com.eventy.dto.request.UserCreate;
 import com.eventy.dto.response.LoginTokenResponse;
 import com.eventy.entity.User;
+import com.eventy.security.user.CurrentUser;
 import com.eventy.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,5 +32,6 @@ public class AuthController {
             authService.authenticate(loginRequest)
         );
     }
+
 }
 
