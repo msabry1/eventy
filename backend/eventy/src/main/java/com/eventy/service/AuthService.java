@@ -4,6 +4,7 @@ import com.eventy.dto.request.LoginRequest;
 import com.eventy.dto.request.UserCreate;
 import com.eventy.dto.response.LoginTokenResponse;
 import com.eventy.entity.User;
+import com.eventy.exceptions.UserAlreadyExistsException;
 import com.eventy.repository.UserRepository;
 import com.eventy.security.jwt.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,10 @@ public class AuthService {
         return new LoginTokenResponse(jwtToken);
     }
 
-    public void register(UserCreate userDto) {
+    public LoginTokenResponse register(UserCreate userDto) {
+        if (userRepository.existsByEmail(userDto.getEmail())) {
+            throw new UserAlreadyExistsException("User already exists");
+        }
         User user = User.builder()
                 .email(userDto.getEmail())
                 .name(userDto.getUsername())
@@ -45,5 +49,8 @@ public class AuthService {
                 .ticketsCnt(0L)
                 .build();
         userRepository.save(user);
+
+        String jwtToken = jwtUtil.generateToken(user.getEmail());
+        return new LoginTokenResponse(jwtToken);
     }
 }

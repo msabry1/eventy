@@ -17,9 +17,10 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody UserCreate userDto) {
-        authService.register(userDto);
-        return ResponseEntity.ok("User registered successfully");
+    public ResponseEntity<LoginTokenResponse> register(@RequestBody UserCreate userDto) {
+        return ResponseEntity.ok(
+                authService.register(userDto)
+        );
     }
 
 
