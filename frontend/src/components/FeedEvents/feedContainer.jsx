@@ -31,7 +31,7 @@ const EventsContainer = ({ events }) => {
         onChange={handleSearchChange}
       />
       {filteredEvents.map((event) => (
-        <EventCard key={event.id} event={event} />
+        <EventCard key={event.id} eventData={event} />
       ))}
     </div>
   );
