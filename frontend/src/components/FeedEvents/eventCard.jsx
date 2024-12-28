@@ -4,12 +4,13 @@ import logo from '../../assets/lll.png';
 import Comments from '../ToolBarForEventCard/comments';
 import Toolbar from '../ToolBarForEventCard/toolBarForEventCard';
 import { Link } from 'react-router-dom';
+import { axiosInstance } from '../../services/authService';
 
-const EventCard = ({ eventData,token }) => {
+const EventCard = ({ eventData }) => {
   const [showComments, setShowComments] = useState(false);
   const [event, setEvent] = useState(eventData); // Store event state
   const [comments, setComments] = useState([]); // Store comments state
-  const [loading, setLoading] = useState(true); // Loading state for comments
+  const [loading, setLoading] = useState(false); // Loading state for comments
   const [error, setError] = useState(null); // Error state for comments
 
   // Toggle visibility of comments
@@ -30,35 +31,20 @@ const EventCard = ({ eventData,token }) => {
     });
   };
 
-  // Fetch comments for the event with authentication
-  const fetchComments = async () => {
-    try {
-     
-    
-      const response = await fetch(`https://31f4-197-48-148-54.ngrok-free.app/comments/${event.id}`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setComments(data); // Set fetched comments in state
-      } else {
-        throw new Error('Failed to fetch comments');
-      }
-    } catch (err) {
-      setError(err.message); // Set error if any occurs
-    } finally {
-      setLoading(false); // Set loading to false after fetch is complete
-    }
-  };
 
   // Fetch comments when the component mounts or the event changes
   useEffect(() => {
-    fetchComments();
+    async function fetchComments() {
+        const response = await axiosInstance.get("/comments/"+event.id)
+        if (response.ok) {
+          const data = await response.json();
+          setComments(data); // Set fetched comments in state
+        } else {
+          throw new Error('Failed to fetch comments');
+        }
+      
+    }
+    fetchComments()
   }, [event.id]);
 
 
@@ -109,7 +95,7 @@ const EventCard = ({ eventData,token }) => {
       {loading && <p>Loading comments...</p>}
       {error && <p>Error: {error}</p>}
       {showComments && !loading && !error && (
-        <Comments onClose={toggleComments} comments={comments} />
+        <Comments onClose={toggleComments} comments={comments} handleNewComment={(newComment)=> setComments([...comments, newComment])} />
       )}
     </div>
   );

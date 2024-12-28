@@ -17,7 +17,7 @@ import { isAuthenticated } from "./services/authService";
 // Protected Route wrapper component
 const ProtectedRoute = ({ children }) => {
   if (!isAuthenticated()) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/signIn" replace />;
   }
   return children;
 };

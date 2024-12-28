@@ -9,10 +9,10 @@ const Comments = ({ comments, onClose, handleNewComment }) => {
   };
 
   const handleCommentSubmit = () => {
-    if (newComment.trim()) {
+    // if (newComment.trim()) {
       handleNewComment(newComment);
-      setNewComment(''); 
-    }
+      // setNewComment(''); 
+    // }
   };
 
   return (
