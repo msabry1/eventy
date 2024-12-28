@@ -3,7 +3,7 @@ import React from 'react';
 import EventCard from './EventCard'; // Import EventCard component
 import './feedContainer.css'; // CSS for styling
 
-const EventsContainer = ({ events }) => {
+const EventsContainer = ({ events,token }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredEvents, setFilteredEvents] = useState(events);
 
@@ -31,7 +31,7 @@ const EventsContainer = ({ events }) => {
         onChange={handleSearchChange}
       />
       {filteredEvents.map((event) => (
-        <EventCard key={event.id} eventData={event} />
+        <EventCard key={event.id} eventData={event} token ={token} />
       ))}
     </div>
   );

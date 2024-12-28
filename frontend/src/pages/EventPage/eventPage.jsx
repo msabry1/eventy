@@ -29,16 +29,13 @@ const EventPage = () => {
           <h2>Event Organizers</h2>
           <p>{event.organizers}</p>
         </div>
-        <div className="event-photos">
-          <h2>Event Photos</h2>
-          {/* Map through photos if they are in an array */}
-          {event.photos.map((photo, index) => (
-            <img key={index} src={logo} alt={`Event ${index}`} className="event-photo" />
-          ))}
-        </div>
+       
         <div className="event-details">
           <h2>Event Details</h2>
-          <p>{event.details}</p>
+          <p>Event Address</p>
+          <p>{event.address}</p>
+          <p>Event category</p>
+          <p>{event.category}</p>
         </div>
       </div>
 

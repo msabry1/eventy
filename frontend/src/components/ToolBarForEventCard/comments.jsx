@@ -11,7 +11,7 @@ const Comments = ({ comments, onClose, handleNewComment }) => {
   const handleCommentSubmit = () => {
     if (newComment.trim()) {
       handleNewComment(newComment);
-      setNewComment(''); // Reset the textarea after submission
+      setNewComment(''); 
     }
   };
 
@@ -29,8 +29,8 @@ const Comments = ({ comments, onClose, handleNewComment }) => {
           ) : (
             comments.map((comment, index) => (
               <div key={index} className="comment-item">
-                <strong>{comment.username}</strong>
-                <p>{comment.comment}</p>
+                <strong>{comment.ownerName}</strong>
+                <p>{comment.content}</p>
               </div>
             ))
           )}
