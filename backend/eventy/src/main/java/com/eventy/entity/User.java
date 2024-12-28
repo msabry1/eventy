@@ -31,7 +31,6 @@ public class User {
 
     @Lob
     @Column(name = "photo")
-    @JsonIgnore
     private byte[] photo;
 
 
