@@ -1,17 +1,14 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./SignIn.module.css"; // Import CSS Module
-import logo from "../../assets/logo.png";
-import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLogin } from "../../hooks/useAuth";
-import { getAuthData, setAuthData } from "../../services/authAxios";
+import logo from "../../assets/logo.png";
+import { login } from "../../services/authService";
+import styles from "./SignIn.module.css"; // Import CSS Module
 
 function SignIn() {
-  const { login } = useLogin(); // Access login function from AuthContext
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -28,17 +25,17 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = formData.email;
-    const password = formData.password;
+    setError('');
     
-    const success = await login(email, password);
-    if (success) {
-        const { user } = getAuthData();
-        setAuthData({ user, isLoading: false });
-        navigate("/");
+    try {
+      const success = await login(formData.email, formData.password);
+      if (success) {
+        navigate('/'); // redirect to protected route
+      }
+    } catch (err) {
+      setError('Invalid credentials');
     }
   };
-
   const handleSignUp = () => {
     navigate("/signUp");
   };

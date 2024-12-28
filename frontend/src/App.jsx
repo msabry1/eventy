@@ -1,21 +1,28 @@
-import { useContext } from "react";
 import {
+  Navigate,
+  Route,
   BrowserRouter as Router,
   Routes,
-  Route,
-  Navigate,
 } from "react-router-dom";
-import { UserProvider, useUser } from "./context/UserContext";
-import SignUp from "./pages/sign-up/sign-up";
-import SignIn from "./pages/sign-in/sign-in";
-import ProfilePage from "./pages/ProfilePage/profilePage";
-import TicketsPage from "./pages/TicketsPage/TicketsPage";
-import EventFeed from "./pages/FeedPage/eventFeed";
-import EventPage from "./pages/EventPage/eventPage";
 import CreateEventPage from "./pages/CreateEvent/createEventPage";
+import EventPage from "./pages/EventPage/eventPage";
+import EventFeed from "./pages/FeedPage/eventFeed";
+import ProfilePage from "./pages/ProfilePage/profilePage";
+import SignIn from "./pages/sign-in/sign-in";
+import SignUp from "./pages/sign-up/sign-up";
+import TicketsPage from "./pages/TicketsPage/TicketsPage";
+import { isAuthenticated } from "./services/authService";
+
+
+// Protected Route wrapper component
+const ProtectedRoute = ({ children }) => {
+  if (!isAuthenticated()) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+};
 
 function App() {
-  const { isAuthenticated } = useUser(UserProvider); // Access authentication status
 
   return (
     <Router>
@@ -27,35 +34,27 @@ function App() {
         {/* Protected Routes */}
         <Route
           path="/"
-          element={
-            isAuthenticated ? <ProfilePage /> : <Navigate to="/signIn" />
-          }
+          element={ <ProtectedRoute><ProfilePage /></ProtectedRoute>}
         />
         <Route
           path="/myProfile"
-          element={
-            isAuthenticated ? <ProfilePage /> : <Navigate to="/signIn" />
-          }
+          element={ <ProtectedRoute><ProfilePage /></ProtectedRoute>}
         />
         <Route
           path="/myTickets"
-          element={
-            isAuthenticated ? <TicketsPage /> : <Navigate to="/signIn" />
-          }
+          element={<ProtectedRoute><TicketsPage /></ProtectedRoute>}
         />
         <Route
           path="/myFeed"
-          element={isAuthenticated ? <EventFeed /> : <Navigate to="/signIn" />}
+          element={<ProtectedRoute><EventFeed /></ProtectedRoute>}
         />
         <Route
           path="/myProfile/createEvent"
-          element={
-            isAuthenticated ? <CreateEventPage /> : <Navigate to="/signIn" />
-          }
+          element={<ProtectedRoute><CreateEventPage /></ProtectedRoute>}
         />
         <Route
           path="/eventPage"
-          element={isAuthenticated ? <EventPage /> : <Navigate to="/signIn" />}
+          element={<ProtectedRoute><EventPage /></ProtectedRoute>}
         />
       </Routes>
     </Router>
