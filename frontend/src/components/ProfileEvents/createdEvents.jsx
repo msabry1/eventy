@@ -67,7 +67,6 @@ const CreatedEvents = ({ title }) => {
         <div className="scrollable-content">
           {/* Map over the events array to create a ProfileEvent for each event */}
           {events.map((event, index) => {
-  console.log("zzzzzzzz", event); // Check what each 'event' contains
   return <ProfileEvent key={index} event={event} />;
 })}
 

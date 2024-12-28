@@ -36,7 +36,7 @@ const Toolbar = ({ onToggleComments, showComments, event, handleVote }) => {
           onClick={onToggleComments}
           style={{ color: showComments ? '#007bff' : 'grey' }}
         />
-        <span className="icon-count">{event.comments.length}</span>
+        <span className="icon-count">{event.commentsCnt}</span>
       </div>
 
       <div className="icon-container">
@@ -45,7 +45,7 @@ const Toolbar = ({ onToggleComments, showComments, event, handleVote }) => {
           onClick={toggleUpvote}
           style={{ color: upvoted ? 'green' : 'grey' }}
         />
-        <span className="icon-count">{event.upvotes}</span>
+        <span className="icon-count">{event.upVotes}</span>
       </div>
 
       <div className="icon-container">
@@ -54,7 +54,7 @@ const Toolbar = ({ onToggleComments, showComments, event, handleVote }) => {
           onClick={toggleDownvote}
           style={{ color: downvoted ? 'red' : 'grey' }}
         />
-        <span className="icon-count">{event.downvotes}</span>
+        <span className="icon-count">{event.downVotes}</span>
       </div>
     </div>
   );

@@ -1,77 +1,39 @@
-import React from 'react';
-import Navbar from "../../components/navbar/navbar"
+import React, { useState, useEffect } from 'react';
+import Navbar from "../../components/navbar/navbar";
 import EventsContainer from '../../components/FeedEvents/feedContainer';
+import axios from 'axios';
 
 const EventFeed = () => {
-  const events = [
-    {
-      id: 1,
-      name: 'hamada',
-      description: ['Event Description', 'More details about the event'],
-      date: 'DD/MM/YYYY',
-      time: '07:00 PM EST',
-      location: 'Location',
-      price: '99$',
-      image: 'path_to_event_image.jpg',
-      organizers: "hamada",
-      photos: [],
-      comments: [
-        { username: 'JohnDoe', comment: 'Great event! Looking forward to it.' },
-        { username: 'JaneDoe', comment: 'Can’t wait to attend this event!' }
-      ],
-      upvotes: 0,
-      downvotes: 0,
-      showComments: false,
-    },
-    {
-      id: 2,
-      name: 'zena',
-      description: ['Event Description', 'More details about the event'],
-      details: "eventttt ooffff bomm ta555",
-      date: 'DD/MM/YYYY',
-      time: '07:00 PM EST',
-      location: 'siko',
-      price: '99$',
-      image: 'path_to_event_image.jpg',
-      organizers: "hamada",
-      photos: [],
-      comments: [
-        { username: 'Alice', comment: 'Excited for this event!' },
-        { username: 'Bob', comment: 'Looking forward to seeing the guests!' }
-      ],
-      upvotes: 2,
-      downvotes: 1,
-      showComments: false,
-    },
-    {
-      id: 3,
-      name: 'Event Name',
-      description: ['Event Description', 'More details about the event'],
-      details: "eventttt ooffff bomm ta555",
-      date: 'DD/MM/YYYY',
-      time: '07:00 PM EST',
-      location: 'Location',
-      price: '99$',
-      image: 'path_to_event_image.jpg',
-      organizers: "hamada",
-      photos: [],
-      comments: [
-        { username: 'Charlie', comment: 'This event looks promising!' }
-      ],
-      upvotes: 1,
-      downvotes: 0,
-      showComments: false,
-    },
-  ];
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VybmFtZSIsImVtYWlsIjoieHl5eXpAZ21haWwuY29tIiwiaWF0IjoxNzM1MzUzOTc1LCJleHAiOjE3MzU0NDAzNzV9.ZhVBU6iLH8r9XR34O98sQyQCEmsjpC4iyEeNLI-EKfA";
 
+  useEffect(() => {
+    axios
+      .get("https://31f4-197-48-148-54.ngrok-free.app/api/events/feed", {
+        headers: {
+          Authorization: `Bearer ${token}`, // Add the token in the Authorization header
+        },
+      })
+      .then((response) => {
+        setEvents(response.data); // Set the fetched events
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError('Failed to load events');
+        setLoading(false);
+      });
+  }, []);
+  console.log(events)
+  if (loading) return <p>Loading events...</p>;
+  if (error) return <p>{error}</p>;
 
-
-  
   return (
     <>
       <Navbar />
-      <EventsContainer events={events} />
+      <EventsContainer events={events} token={token} />
     </>
   );
 };
